@@ -1,41 +1,42 @@
 require_relative './trivia.rb'
+require_relative './question.rb'
+require_relative './inventory.rb'
+require_relative './item.rb'
+require_relative './player.rb'
 require 'pry'
 
 class Game
 
-  TRIVIA = Trivia.new()
-
-  def self.ask_question_first_class
-    fake_array = [15, 17, 19, 21, 9, 6]
-    song = TRIVIA.song_count
-    puts "How many times was #{song.keys[0]} played during the Europe '72 tour?"
-    answer_array = [song.values[0], fake_array.sample]
-    var = answer_array.sample
-    other = answer_array.find {|el| el != var}
-    puts "1. #{var}"
-    puts "2. #{other}"
+  ##Welcome
+  def welcome
+    puts "Welcome to Europe '72! To ride the bus with us, you'll have to answer a few questions. But don't get too excited, you'll only have a couple of chances...Otherwise you'll miss the shows!"
   end
 
-  def self.ask_question_second_class
-    fake_array = ["One More Saturday Night", "Mexicali Blues", "Casey Jones", "Big Railroad Blues", "Mr. Charlie", "He's Gone"]
-    show = TRIVIA.first_song
-    puts "What song did they open with at #{show.keys[0]} during the Europe '72 tour?"
-    answer_array = [show.values[0], fake_array.sample]
-    var = answer_array.sample
-    other = answer_array.find {|el| el != var}
-    puts "1. #{var}"
-    puts "2. #{other}"
+  def prompt_user
+    puts "Please enter a groovy username"
   end
 
-  def fake_answers_third_class
-    fake_array = []
+  ##Enter username
+  def enter_username
+    response = gets.chomp
+    @this_player = Player.new(response)
+    puts "To begin, you have #{@this_player.lives} lives and #{@this_player.points} points."
+    binding.pry
   end
 
-  def ask_question_third_class
+  ##Story line
+
+  ##Question
+  def question_first_class
+    Question.ask_question_first_class
   end
 
+    ##Correct
+
+    ##Incorrect
 
 end
 
-Game.ask_question_second_class
+b = Game.new()
 binding.pry
+"hello"
