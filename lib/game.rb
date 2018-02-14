@@ -30,7 +30,10 @@ class Game < Question
     puts "Don't worry, we'll start you off with an easy one. Answer this:"
   end
 
-  ##Question
+  def question_2
+    puts 
+
+  ##Questions
   def question_first_class
     Question.ask_question_first_class
   end

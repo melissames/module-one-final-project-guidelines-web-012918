@@ -14,9 +14,14 @@ class Question
     other = answer_array.find {|el| el != var}
     puts "1. #{var}"
     puts "2. #{other}"
-
     response = gets.chomp
-    response == song.values[0] ? self.correct :  self.incorrect
+    puts song.values[0]
+
+    if response.to_s == song.values[0].to_s
+      return self.correct
+    else
+      return self.incorrect
+    end
   end
 
   def self.ask_question_second_class
@@ -30,7 +35,7 @@ class Question
     puts "2. #{other}"
 
     response = gets.chomp
-    response == show.values[0] ?  self.correct :  self.incorrect
+    response == show.values[0] ? self.correct : self.incorrect
   end
 
   def self.ask_question_third_class
@@ -58,3 +63,7 @@ class Question
 
 
 end
+
+binding.pry
+
+"hello"
