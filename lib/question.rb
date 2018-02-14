@@ -16,7 +16,7 @@ class Question
     puts "2. #{other}"
 
     response = gets.chomp
-    response == song.values[0] ? self.correct :  self.incorrect
+    response.to_s == song.values[0].to_s ? self.correct : self.incorrect
   end
 
   def self.ask_question_second_class

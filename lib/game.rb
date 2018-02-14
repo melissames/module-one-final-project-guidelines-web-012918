@@ -1,11 +1,14 @@
 require_relative './trivia.rb'
 require_relative './question.rb'
-require_relative './inventory.rb'
 require_relative './item.rb'
 require_relative './player.rb'
 require 'pry'
 
 class Game < Question
+
+  def initialize(player=nil)
+    @@player = player || Player.new()
+  end
 
   ##Welcome
   def welcome
@@ -18,16 +21,19 @@ class Game < Question
 
   ##Enter username
   def enter_username
-    # response = gets.chomp
-    # this_player = Player.new(response)
-    # this_player.save
-    # puts "To begin, you have #{@this_player.lives} chances."
+    response = gets.chomp
+    @@player.username = response
+    puts "To begin, you have #{@@player.lives} chances."
     # binding.pry
   end
 
   ##Story line
   def question_1
     puts "Don't worry, we'll start you off with an easy one. Answer this:"
+  end
+
+  def question_2
+    puts "Here comes the next question"
   end
 
   ##Question
@@ -44,25 +50,27 @@ class Game < Question
   end
 
     def Question.correct
-      # super
-      puts "hi!"
+      # binding.pry
+      puts "Congratulations! You now have #{@@player.next_item} and you have a #{@@player.lives} lives left."
     end
 
     def Question.incorrect
-      # super
-      puts "bye!"
+      # binding.pry
+      @@player.remove_life
+      puts "Sorry, you lost a life. You now have #{@@player.lives} lives."
     end
 
   def runner
     welcome
     prompt_user
     enter_username
+    question_1
+    question_first_class
+    question_2
+    question_second_class
   end
 
 end
 
-b = Game.new()
-# b.runner
-b.question_first_class
-binding.pry
-"hello"
+b = Game.new
+b.runner
