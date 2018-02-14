@@ -1,6 +1,5 @@
 require_relative './trivia.rb'
 require_relative './question.rb'
-require_relative './inventory.rb'
 require_relative './item.rb'
 require_relative './player.rb'
 require 'pry'
@@ -21,7 +20,7 @@ class Game
     response = gets.chomp
     @this_player = Player.new(response)
     puts "To begin, you have #{@this_player.lives} lives and #{@this_player.points} points."
-    binding.pry
+    # binding.pry
   end
 
   ##Story line
@@ -37,6 +36,6 @@ class Game
 
 end
 
-b = Game.new()
-binding.pry
-"hello"
+# b = Game.new()
+# binding.pry
+# "hello"

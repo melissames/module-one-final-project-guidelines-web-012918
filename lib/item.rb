@@ -1,12 +1,27 @@
-class Item < ActiveRecord::Base
+class Item
 
-  has_many :inventories
-  has_many :players, through: :inventories
+  attr_accessor :player, :name, :id_number
 
-  #   @name = "Guitar Pick" @points = 5
-  #   @name = "Tie Dye Shirt" @points = 10
-  #   @name = "China Cat Sunflower" @points = 15
-  #   @name = "Steal Your Face" @points = 20
-  #   @name = "Scarlet Begonia" @points = 25
+  @@all = []
+
+  def initialize(name, id_number)
+    @name = name
+    @id_number = id_number
+    @username = username
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
+
+
 
 end
+
+  guitar_pick = Item.new("Guitar Pick", 1)
+  tie_dye = Item.new("Tie Dye Shirt", 2)
+  china_cat = Item.new("China Cat Sunflower", 3)
+  steal_your_face = Item.new("Steal Your Face", 4)
+  scarlet = Item.new("Scarlet Begonia", 5)
+  bear = Item.new("Dancing Bear", 6)
