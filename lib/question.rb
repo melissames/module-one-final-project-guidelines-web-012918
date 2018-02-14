@@ -15,13 +15,7 @@ class Question
     puts "1. #{var}"
     puts "2. #{other}"
     response = gets.chomp
-    puts song.values[0]
-
-    if response.to_s == song.values[0].to_s
-      return self.correct
-    else
-      return self.incorrect
-    end
+    response.to_s == song.values[0].to_s ? self.correct : self.incorrect
   end
 
   def self.ask_question_second_class

@@ -2,7 +2,7 @@ require 'bundler'
 
 require "sinatra/activerecord"
 require "active_record"
-require 'require_all'
+# require 'require_all'
 # require 'catpix'
 # require 'rmagick'
 # require 'rake'
