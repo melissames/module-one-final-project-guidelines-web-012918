@@ -1,12 +1,13 @@
 class Item
 
-  attr_accessor :player, :name, :id_number
+  attr_accessor :player, :name, :id_number, :user
 
   @@all = []
 
-  def initialize(name, id_number)
+  def initialize(name, id_number, user=nil)
     @name = name
     @id_number = id_number
+    @user = user
     @@all << self
   end
 
@@ -14,25 +15,17 @@ class Item
     @@all
   end
 
-  # def add_username(username)
-  #   self.username = username
-  # end
-
-
-
-  #if the username matches the player.username return the items
-
-  def return_users_items(player)
-    self.all.select{|item| player.username == item.username}
+  def add_user(user)
+    self.user = user
   end
-
 
 
 end
 
-  guitar_pick = Item.new("Guitar Pick", 1)
-  tie_dye = Item.new("Tie Dye Shirt", 2)
-  china_cat = Item.new("China Cat Sunflower", 3)
-  steal_your_face = Item.new("Steal Your Face", 4)
-  scarlet = Item.new("Scarlet Begonia", 5)
-  bear = Item.new("Dancing Bear", 6)
+  testing = Item.new("Test Case", 1)
+  guitar_pick = Item.new("Keith Godchaux", 2)
+  tie_dye = Item.new("Bob Weir", 3)
+  china_cat = Item.new("Phil Lesh", 4)
+  steal_your_face = Item.new("Mickey Hart", 5)
+  scarlet = Item.new("Bill Kreutzmann", 6)
+  bear = Item.new("Jerry Garcia", 7)
