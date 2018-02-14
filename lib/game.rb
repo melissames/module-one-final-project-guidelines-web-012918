@@ -5,11 +5,11 @@ require_relative './item.rb'
 require_relative './player.rb'
 require 'pry'
 
-class Game
+class Game < Question
 
   ##Welcome
   def welcome
-    puts "Welcome to Europe '72! To ride the bus with us, you'll have to answer a few questions. But don't get too excited, you'll only have a couple of chances...Otherwise you'll miss the shows!"
+    puts "Welcome to Europe '72! To ride the bus with us, you'll have to answer a few questions and prove you are a true deadhead. If you pass our test, you can hop on...Otherwise you'll miss the tour!"
   end
 
   def prompt_user
@@ -18,25 +18,51 @@ class Game
 
   ##Enter username
   def enter_username
-    response = gets.chomp
-    @this_player = Player.new(response)
-    puts "To begin, you have #{@this_player.lives} lives and #{@this_player.points} points."
-    binding.pry
+    # response = gets.chomp
+    # this_player = Player.new(response)
+    # this_player.save
+    # puts "To begin, you have #{@this_player.lives} chances."
+    # binding.pry
   end
 
   ##Story line
+  def question_1
+    puts "Don't worry, we'll start you off with an easy one. Answer this:"
+  end
 
   ##Question
   def question_first_class
     Question.ask_question_first_class
   end
 
-    ##Correct
+  def question_second_class
+    Question.ask_question_second_class
+  end
 
-    ##Incorrect
+  def question_third_class
+    Question.ask_question_third_class
+  end
+
+    def Question.correct
+      # super
+      puts "hi!"
+    end
+
+    def Question.incorrect
+      # super
+      puts "bye!"
+    end
+
+  def runner
+    welcome
+    prompt_user
+    enter_username
+  end
 
 end
 
 b = Game.new()
+# b.runner
+b.question_first_class
 binding.pry
 "hello"
